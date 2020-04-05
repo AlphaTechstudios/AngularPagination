@@ -1,0 +1,22 @@
+<div class="m-5">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Random</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of usersList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <th scope="row">{{item.random}}</th>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize" [collectionSize]="usersList.length"></ngb-pagination>
+</div>
